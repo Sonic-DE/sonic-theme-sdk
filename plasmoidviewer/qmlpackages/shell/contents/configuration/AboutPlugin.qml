@@ -47,7 +47,7 @@ KCM.SimpleKCM {
                     icon.name: "mail-sent"
 
                     display: QQC2.AbstractButton.IconOnly
-                    text: i18nd("plasma_shell_org.kde.plasma.desktop", "Send an email to %1", modelData.emailAddress)
+                    text: i18nd("plasma_shell_org.sonicde.desktop", "Send an email to %1", modelData.emailAddress)
 
                     QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
                     QQC2.ToolTip.visible: hovered
@@ -61,7 +61,7 @@ KCM.SimpleKCM {
                     icon.name: "globe"
 
                     display: QQC2.AbstractButton.IconOnly
-                    text: i18ndc("plasma_shell_org.kde.plasma.desktop", "@info:tooltip %1 url", "Open website %1", modelData.webAddress)
+                    text: i18ndc("plasma_shell_org.sonicde.desktop", "@info:tooltip %1 url", "Open website %1", modelData.webAddress)
 
                     QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
                     QQC2.ToolTip.visible: hovered
@@ -134,7 +134,7 @@ KCM.SimpleKCM {
 
             Kirigami.Heading {
                 Layout.topMargin: Kirigami.Units.smallSpacing
-                text: i18nd("plasma_shell_org.kde.plasma.desktop", "Copyright")
+                text: i18nd("plasma_shell_org.sonicde.desktop", "Copyright")
                 textFormat: Text.PlainText
             }
 
@@ -155,12 +155,12 @@ KCM.SimpleKCM {
                 RowLayout {
                     spacing: Kirigami.Units.smallSpacing
                     QQC2.Label {
-                        text: i18nd("plasma_shell_org.kde.plasma.desktop", "License:")
+                        text: i18nd("plasma_shell_org.sonicde.desktop", "License:")
                         textFormat: Text.PlainText
                     }
                     Kirigami.LinkButton {
                         text: page.metaData.license
-                        Accessible.description: i18ndc("plasma_shell_org.kde.plasma.desktop", "@info:whatsthis", "View license text")
+                        Accessible.description: i18ndc("plasma_shell_org.sonicde.desktop", "@info:whatsthis", "View license text")
                         onClicked: {
                             licenseComponent.incubateObject(page.Window.window.contentItem, {
                                 "text": page.metaData.licenseText,
@@ -174,7 +174,7 @@ KCM.SimpleKCM {
             Kirigami.Heading {
                 Layout.fillWidth: true
                 Layout.topMargin: Kirigami.Units.smallSpacing
-                text: i18nd("plasma_shell_org.kde.plasma.desktop", "Authors")
+                text: i18nd("plasma_shell_org.sonicde.desktop", "Authors")
                 textFormat: Text.PlainText
                 visible: page.metaData.authors.length > 0
             }
@@ -186,7 +186,7 @@ KCM.SimpleKCM {
             Kirigami.Heading {
                 height: visible ? implicitHeight : 0
                 Layout.topMargin: Kirigami.Units.smallSpacing
-                text: i18nd("plasma_shell_org.kde.plasma.desktop", "Credits")
+                text: i18nd("plasma_shell_org.sonicde.desktop", "Credits")
                 textFormat: Text.PlainText
                 visible: repCredits.count > 0
             }
@@ -199,7 +199,7 @@ KCM.SimpleKCM {
             Kirigami.Heading {
                 height: visible ? implicitHeight : 0
                 Layout.topMargin: Kirigami.Units.smallSpacing
-                text: i18nd("plasma_shell_org.kde.plasma.desktop", "Translators")
+                text: i18nd("plasma_shell_org.sonicde.desktop", "Translators")
                 textFormat: Text.PlainText
                 visible: repTranslators.count > 0
             }
@@ -217,7 +217,7 @@ KCM.SimpleKCM {
                 Layout.alignment: Qt.AlignHCenter
 
                 icon.name: "tools-report-bug"
-                text: i18nd("plasma_shell_org.kde.plasma.desktop", "Report a Bug…")
+                text: i18nd("plasma_shell_org.sonicde.desktop", "Report a Bug…")
 
                 visible: page.metaData.bugReportUrl.length > 0
 

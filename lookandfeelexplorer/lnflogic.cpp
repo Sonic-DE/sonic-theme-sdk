@@ -93,12 +93,17 @@ void LnfLogic::createNewTheme(const QString &pluginName,
 
 void LnfLogic::dumpPlasmaLayout(const QString &pluginName)
 {
-    QDBusMessage message = QDBusMessage::createMethodCall("org.kde.plasmashell", "/PlasmaShell", "org.kde.PlasmaShell", "dumpCurrentLayoutJS");
+    const bool sonicSession = qgetenv("XDG_CURRENT_DESKTOP").split(':').contains(QByteArrayLiteral("SonicDE"));
+    QDBusMessage message = QDBusMessage::createMethodCall(sonicSession ? QStringLiteral("org.sonicde.sonicshell") : QStringLiteral("org.kde.plasmashell"),
+                                                       sonicSession ? QStringLiteral("/SonicShell") : QStringLiteral("/PlasmaShell"),
+                                                       sonicSession ? QStringLiteral("org.sonicde.SonicShell") : QStringLiteral("org.kde.PlasmaShell"),
+                                                       QStringLiteral("dumpCurrentLayoutJS"));
     QDBusPendingCall pcall = QDBusConnection::sessionBus().asyncCall(message);
 
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(pcall, this);
 
-    QObject::connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, pluginName](QDBusPendingCallWatcher *watcher) {
+    const QString layoutFileName = sonicSession ? QStringLiteral("org.sonicde.desktop-layout.js") : QStringLiteral("org.kde.plasma.desktop-layout.js");
+    QObject::connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, pluginName, layoutFileName](QDBusPendingCallWatcher *watcher) {
         const QDBusMessage &msg = watcher->reply();
         watcher->deleteLater();
         if (watcher->isError()) {
@@ -115,13 +120,13 @@ void LnfLogic::dumpPlasmaLayout(const QString &pluginName)
         }
 
         QFile layoutFile(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) % QLatin1String("/plasma/look-and-feel/") % pluginName
-                         % QLatin1String("/contents/layouts/org.kde.plasma.desktop-layout.js"));
+                         % QLatin1String("/contents/layouts/") % layoutFileName);
         if (layoutFile.open(QIODevice::WriteOnly)) {
             layoutFile.write(layout.toUtf8());
             layoutFile.close();
         } else {
-            qWarning() << "Impossible to write to org.kde.plasma.desktop-layout.js";
-            emit messageRequested(ErrorLevel::Error, i18n("Impossible to write to org.kde.plasma.desktop-layout.js"));
+            qWarning() << "Impossible to write to" << layoutFileName;
+            emit messageRequested(ErrorLevel::Error, i18n("Impossible to write to %1", layoutFileName));
             return;
         }
         emit messageRequested(ErrorLevel::Info, i18n("Plasma Layout successfully duplicated"));

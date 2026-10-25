@@ -73,7 +73,7 @@ PlasmaCore.ToolTipArea {
 
         objectName: "expandApplet"
         Accessible.name: root.mainText
-        Accessible.description: i18nd("plasma_shell_org.kde.plasma.desktop", "Open %1", root.subText)
+        Accessible.description: i18nd("plasma_shell_org.sonicde.desktop", "Open %1", root.subText)
         Accessible.role: Accessible.Button
         Accessible.onPressAction: Plasmoid.activated()
 

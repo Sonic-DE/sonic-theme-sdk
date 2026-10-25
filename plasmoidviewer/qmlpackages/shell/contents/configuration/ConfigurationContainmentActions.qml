@@ -18,19 +18,19 @@ Item {
     implicitHeight: mainColumn.implicitHeight
 
     property var prettyStrings: {
-        "LeftButton": i18nd("plasma_shell_org.kde.plasma.desktop", "Left-Button"),
-        "RightButton": i18nd("plasma_shell_org.kde.plasma.desktop", "Right-Button"),
-        "MiddleButton": i18nd("plasma_shell_org.kde.plasma.desktop", "Middle-Button"),
-        "BackButton": i18nd("plasma_shell_org.kde.plasma.desktop", "Back-Button"),
-        "ForwardButton": i18nd("plasma_shell_org.kde.plasma.desktop", "Forward-Button"),
+        "LeftButton": i18nd("plasma_shell_org.sonicde.desktop", "Left-Button"),
+        "RightButton": i18nd("plasma_shell_org.sonicde.desktop", "Right-Button"),
+        "MiddleButton": i18nd("plasma_shell_org.sonicde.desktop", "Middle-Button"),
+        "BackButton": i18nd("plasma_shell_org.sonicde.desktop", "Back-Button"),
+        "ForwardButton": i18nd("plasma_shell_org.sonicde.desktop", "Forward-Button"),
 
-        "wheel:Vertical": i18nd("plasma_shell_org.kde.plasma.desktop", "Vertical-Scroll"),
-        "wheel:Horizontal": i18nd("plasma_shell_org.kde.plasma.desktop", "Horizontal-Scroll"),
+        "wheel:Vertical": i18nd("plasma_shell_org.sonicde.desktop", "Vertical-Scroll"),
+        "wheel:Horizontal": i18nd("plasma_shell_org.sonicde.desktop", "Horizontal-Scroll"),
 
-        "ShiftModifier": i18nd("plasma_shell_org.kde.plasma.desktop", "Shift"),
-        "ControlModifier": i18nd("plasma_shell_org.kde.plasma.desktop", "Ctrl"),
-        "AltModifier": i18nd("plasma_shell_org.kde.plasma.desktop", "Alt"),
-        "MetaModifier": i18nd("plasma_shell_org.kde.plasma.desktop", "Meta")
+        "ShiftModifier": i18nd("plasma_shell_org.sonicde.desktop", "Shift"),
+        "ControlModifier": i18nd("plasma_shell_org.sonicde.desktop", "Ctrl"),
+        "AltModifier": i18nd("plasma_shell_org.sonicde.desktop", "Alt"),
+        "MetaModifier": i18nd("plasma_shell_org.sonicde.desktop", "Meta")
     }
 
     function saveConfig() {
@@ -92,7 +92,7 @@ Item {
 
                     return parts.map(function (item) {
                         return prettyStrings[item] || item;
-                    }).join(i18ndc("plasma_shell_org.kde.plasma.desktop", "Concatenation sign for shortcuts, e.g. Ctrl+Shift", "+"));
+                    }).join(i18ndc("plasma_shell_org.sonicde.desktop", "Concatenation sign for shortcuts, e.g. Ctrl+Shift", "+"));
                 }
                 eventString: model.action
                 onEventStringChanged: {
@@ -164,7 +164,7 @@ Item {
                         }
                         aboutComponent.incubateObject(root.Window.window.contentItem, {
                             "metaData": metaData,
-                            "title": i18ndc("plasma_shell_org.kde.plasma.desktop", "@title", "About"),
+                            "title": i18ndc("plasma_shell_org.sonicde.desktop", "@title", "About"),
                         }, Qt.Asynchronous);
                     }
                 }
@@ -179,7 +179,7 @@ Item {
         }
 
         MouseEventInputButton {
-            defaultText: i18nd("plasma_shell_org.kde.plasma.desktop", "Add Action");
+            defaultText: i18nd("plasma_shell_org.sonicde.desktop", "Add Action");
             icon.name: checked ? "input-mouse-symbolic" : "list-add"
             onEventStringChanged: {
                 configDialog.currentContainmentActionsModel.append(eventString, "org.kde.contextmenu");
