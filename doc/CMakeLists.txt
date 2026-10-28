@@ -1,3 +1,2 @@
-ecm_optional_add_subdirectory(engineexplorer)
 ecm_optional_add_subdirectory(kqml)
 ecm_optional_add_subdirectory(plasmoidviewer)

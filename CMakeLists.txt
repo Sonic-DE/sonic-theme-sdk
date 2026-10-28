@@ -70,7 +70,6 @@ set_package_properties(KF6DocTools PROPERTIES
 
 find_package(Plasma ${PROJECT_DEP_VERSION} REQUIRED)
 find_package(PlasmaQuick ${PROJECT_DEP_VERSION} REQUIRED)
-find_package(Plasma5Support ${PROJECT_DEP_VERSION} REQUIRED)
 
 ecm_setup_version(${PROJECT_VERSION}
     VARIABLE_PREFIX PLASMA_SDK
@@ -94,7 +93,6 @@ ecm_set_disabled_deprecation_versions(
 )
 
 add_subdirectory(iconexplorer)
-add_subdirectory(engineexplorer)
 add_subdirectory(kqml)
 add_subdirectory(plasmoidviewer)
 add_subdirectory(themeexplorer)
