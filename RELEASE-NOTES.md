@@ -2,7 +2,7 @@
 
 Tools for theme and widget creators to preview and explore SonicDE themes, icons and desktop widgets.
 
-## Unreleased
+## 6.8.2 (2026-11-10)
 
 - Now presents itself with SonicDE names and identity throughout the desktop.
 - Removed the Plasma Engine Explorer. It explored Plasma 5 data engines, which SonicDE doesn't use, and the
